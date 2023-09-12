@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: rgb(9, 1, 53);
+            color: white;
+            margin-top: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        h1{
+            text-align: center;
+            font-weight: bold;
+            font-size: 60px;
+
+        }
+
+        #fileshare form{
+           text-align: center;
+           margin-top: 50px;
+        }
+
+        #fileshare form input{
+           margin-bottom: 10px;
+           padding: 5px;
+        }
+
+        #fileshare form label{
+           font-size: 30px;
+        }
+
+        #fileshare form button{
+           padding: 5px;
+           font-size: 20px;
+           font-weight: bold;
+           margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section id="fileshare">
+        <h1>Share your Files</h1>
+        <hr>
+        <% if (locals.filelink != null) { %>
+            <div style="text-align: center;">
+            <h3>Share your Document through the link below</h3>
+            <a href="<%= locals.filelink %>" style="color: yellow;"><%= locals.filelink %></a>
+        </div>
+            <% } %>
+        <form method="POST" enctype="multipart/form-data">
+            <div>
+            <label for="file">File:</label>
+            <input type="file" name="file" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password">
+        </div>
+            <button type="submit">Share</button>
+        </form>
+    </section>
+</body>
+</html>
